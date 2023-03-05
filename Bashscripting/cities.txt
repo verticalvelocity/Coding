@@ -1,0 +1,6 @@
+dallas
+stockholm
+chamonix
+istanbul
+norrköping
+tokyo
