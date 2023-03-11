@@ -27,8 +27,10 @@
 //};
 let firstCard = 1;
 let secondCard = 11;
-let thirdCard = 2;
-let cards = [firstCard, secondCard,];
+let thirdCard = 6;
+let fourthCard = 5;
+let sixCard = 2;
+let cards = [firstCard, secondCard];
 /*console.log(cards[1]);
 */
 let sum = cards[0] + cards[1];
@@ -46,9 +48,12 @@ function startGame(){
 };
 
 function renderGame(){
- //  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
-    sumEL.textContent = sum;
-    cardsEl.textContent = "Första kortet: " + cards[0] + "  Andra kortet: " + cards[1];
+        cardsEl.textContent = "Cards: "   
+        for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " ";
+    }
+    
+    sumEL.textContent = "Summa: " + sum;
 
    if (sum <= 20){
        message = "Vill du dra ett till kort?";
@@ -63,9 +68,9 @@ function renderGame(){
 };
 
 function newCard(){
-    let thirdCard = 4;
+    let card = 6
+    sum += card
     cards.push(thirdCard);
-    sum = cards[0] + cards[1] + cards[2];    
     startGame()
 };
 
