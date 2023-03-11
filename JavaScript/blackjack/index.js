@@ -25,11 +25,14 @@
 //    console.log("Welcome to the pleasuredome!");
 //    oldenough = true;
 //};
-
-
 let firstCard = 1;
 let secondCard = 11;
-let sum = firstCard + secondCard;
+let thirdCard = 2;
+let cards = [firstCard, secondCard,];
+/*console.log(cards[1]);
+*/
+let sum = cards[0] + cards[1];
+console.log(sum);
 let hasblack = false;
 let isAlice = true;
 let message = " ";
@@ -44,8 +47,8 @@ function startGame(){
 
 function renderGame(){
  //  document.getElementById("demo").innerHTML = "YOU CLICKED ME!";
-    sumEL.textContent = `Sum: ${sum}`;
-    cardsEl.textContent = "Första kortet: " + firstCard + "  Andra kortet: " + secondCard;
+    sumEL.textContent = sum;
+    cardsEl.textContent = "Första kortet: " + cards[0] + "  Andra kortet: " + cards[1];
 
    if (sum <= 20){
        message = "Vill du dra ett till kort?";
@@ -61,7 +64,8 @@ function renderGame(){
 
 function newCard(){
     let thirdCard = 4;
-    sum = sum + thirdCard;    
+    cards.push(thirdCard);
+    sum = cards[0] + cards[1] + cards[2];    
     startGame()
 };
 
