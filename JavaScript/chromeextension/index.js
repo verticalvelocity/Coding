@@ -1,20 +1,58 @@
+/*let myLeads = `["www.awesomelead.com"]`
+// 1. Turn the myLeads string into an array
+
+myLeads = JSON.parse(myLeads);
+
+// 2. Push a new value to the array
+
+myLeads.push("www.svt.se");
+
+// 3. Turn the array into a string again
+
+myLeads = JSON.stringify(myLeads);
+
+// 4. Console.log the string using typeof to verify that it's a string
+
+console.log(typeof myLeads);
+*/
+
+let myLeads = [];
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
-//let ullEll = document.getElementById("ull-ell");
-let myLeads = [];
 const inputEl = document.getElementById("input-el");
+
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myleads"));
+console.log(leadsFromLocalStorage);
+
+if (leadsFromLocalStorage) {
+    let myLeads = leadsFromLocalStorage
+    renderLead()
+}
 
 inputBtn.addEventListener("click", function(){
     myLeads.push(inputEl.value)
     //document.getElementById("input-el").value=""; 
     inputEl.value="";
-    // Push the value from the inputEl into the myLeads array 
-    // instead of the hard-coded "www.awesomeleads.com" value
-    // Google -> "get value from input field javascript"
-    //console.log(myLeads);
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
+    console.log((myLeads));
     renderLead()
 }) 
+// 1. Save a key-value pair in localStorage
+/*
+localStorage.setItem("myLeads", "www.skritta.se")
+// 2. Refresh the page. Get the value and log it to the console
 
+console.log(localStorage.getItem("myLeads"))
+// 3. Clear localStorage
+localStorage.clear();
+
+
+// HINTS:
+// localStorage.setItem(key, value)
+// localStorage.getItem(key)
+// localStorage.clear()
+// PS: both key and value need to be strings
+*/
 
 function renderLead(){
     let listItems = ""
