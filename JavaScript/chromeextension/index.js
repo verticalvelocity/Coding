@@ -20,14 +20,22 @@ let myLeads = [];
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
 const inputEl = document.getElementById("input-el");
-
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myleads"));
+const deleteBtn = document.getElementById("delete-btn");
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myleads"));
 console.log(leadsFromLocalStorage);
 
 if (leadsFromLocalStorage) {
     let myLeads = leadsFromLocalStorage
     renderLead()
 }
+
+
+deleteBtn.addEventListener("dblclick", function(){    
+    let myLeads = [];
+    localStorage.clear();
+    renderLead();
+}) 
+
 
 inputBtn.addEventListener("click", function(){
     myLeads.push(inputEl.value)
